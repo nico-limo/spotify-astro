@@ -1,0 +1,16 @@
+{
+  "prettier.documentSelectors": ["**/*.astro", "**/*.ts", "**/*.css"],
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true, // Formatear al guardar el archivo
+  "editor.tabSize": 2, // Usar dos espacios por tabulación
+  "files.trimTrailingWhitespace": true, // Eliminar espacios al final de las líneas
+  "files.insertFinalNewline": true // Añadir una línea nueva al final de cada archivo
+}
