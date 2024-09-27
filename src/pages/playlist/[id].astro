@@ -1,6 +1,8 @@
 ---
 import Layout from "@/layouts/Layout.astro"
-import { allPlaylists, playlists, songs } from "@/lib/data"
+import { allPlaylists, songs } from "@/lib/data"
+
+export const prerender = false
 
 const { id } = Astro.params
 

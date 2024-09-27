@@ -1,13 +1,27 @@
 import { usePlayerStore } from "src/store/playerStore"
 import { Pause, Play } from "./Player"
 
+export const prerender = false
+
 export function CardPlayButton({ id }) {
   const { currentMusic, isPlaying, setCurrentMusic, setIsPlaying } =
     usePlayerStore((state) => state)
 
-  const handleClick = () => {
-    setCurrentMusic({ playlist: { id } })
-    setIsPlaying(!isPlaying)
+  const handleClick = async () => {
+    if (isPlayingPlayList) {
+      setIsPlaying(false)
+      return
+    }
+
+    const response = await fetch(`/api/get-info-playlist.json?=id${id}`)
+    const { songs, playlist } = await response.json()
+    console.log(songs, playlist)
+    setIsPlaying(true)
+    setCurrentMusic({
+      playlist,
+      songs,
+      song: songs[0],
+    })
   }
 
   const isPlayingPlayList = isPlaying && currentMusic?.playlist.id === id
