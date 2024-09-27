@@ -2,7 +2,7 @@ import { allPlaylists, songs as allSongs } from "@/lib/data"
 import type { APIRoute } from "astro"
 
 export const prerender = false
-export const GET: APIRoute = async ({ params, request }) => {
+export const GET: APIRoute = async ({ request }) => {
   const { url } = request
   const urlObject = new URL(url)
   const id = urlObject.searchParams.get("id")
