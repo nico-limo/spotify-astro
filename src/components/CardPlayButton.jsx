@@ -13,9 +13,8 @@ export function CardPlayButton({ id }) {
       return
     }
 
-    const response = await fetch(`/api/get-info-playlist.json?=id${id}`)
+    const response = await fetch(`/api/get-info-playlist.json?id=${id}`)
     const { songs, playlist } = await response.json()
-    console.log(songs, playlist)
     setIsPlaying(true)
     setCurrentMusic({
       playlist,
